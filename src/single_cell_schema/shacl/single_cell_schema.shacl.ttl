@@ -1,0 +1,364 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sc_schema: <https://w3id.org/single-cell-schema/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+sc_schema:Assay a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "An assay from the Experimental Factor Ontology." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for an entity." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path sc_schema:name ],
+        [ sh:class sc_schema:CellSet ;
+            sh:description "The cell sets that this ontology term is present in." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path sc_schema:present_in_cell_sets ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "The URI of the source ontology term." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path sc_schema:source_uri ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for an entity." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path sc_schema:id ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description of an entity." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path sc_schema:description ] ;
+    sh:targetClass sc_schema:Assay .
+
+sc_schema:Dataset a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A single cell transcriptomics dataset." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for an entity." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path sc_schema:name ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for an entity." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path sc_schema:id ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description of an entity." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path sc_schema:description ],
+        [ sh:class sc_schema:CellSet ;
+            sh:description "The cell sets in the dataset." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path sc_schema:cell_sets ],
+        [ sh:class sc_schema:OntologyTerm ;
+            sh:description "The ontology terms used in the dataset." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path sc_schema:ontology_terms ],
+        [ sh:class sc_schema:Cell ;
+            sh:description "The cells in the cell set." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path sc_schema:cells ] ;
+    sh:targetClass sc_schema:Dataset .
+
+sc_schema:DevelopmentalStage a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A developmental stage from the appropriate developmental stage ontology." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "The URI of the source ontology term." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path sc_schema:source_uri ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description of an entity." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path sc_schema:description ],
+        [ sh:class sc_schema:CellSet ;
+            sh:description "The cell sets that this ontology term is present in." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path sc_schema:present_in_cell_sets ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for an entity." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path sc_schema:id ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for an entity." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path sc_schema:name ] ;
+    sh:targetClass sc_schema:DevelopmentalStage .
+
+sc_schema:Disease a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A disease from the Mondo Disease Ontology." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for an entity." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path sc_schema:id ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for an entity." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path sc_schema:name ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description of an entity." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path sc_schema:description ],
+        [ sh:class sc_schema:CellSet ;
+            sh:description "The cell sets that this ontology term is present in." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path sc_schema:present_in_cell_sets ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "The URI of the source ontology term." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path sc_schema:source_uri ] ;
+    sh:targetClass sc_schema:Disease .
+
+sc_schema:Tissue a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A tissue from the Uberon Ontology." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for an entity." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path sc_schema:name ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "The URI of the source ontology term." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path sc_schema:source_uri ],
+        [ sh:class sc_schema:CellSet ;
+            sh:description "The cell sets that this ontology term is present in." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path sc_schema:present_in_cell_sets ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for an entity." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path sc_schema:id ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description of an entity." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path sc_schema:description ] ;
+    sh:targetClass sc_schema:Tissue .
+
+sc_schema:CellType a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A cell type from the Cell Ontology." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for an entity." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path sc_schema:id ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "The URI of the source ontology term." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path sc_schema:source_uri ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description of an entity." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path sc_schema:description ],
+        [ sh:class sc_schema:CellSet ;
+            sh:description "A cell set that predominantly consists of this cell type." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path sc_schema:predominantly_in ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for an entity." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path sc_schema:name ] ;
+    sh:targetClass sc_schema:CellType .
+
+sc_schema:Cell a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "An individual cell in the dataset." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for an entity." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path sc_schema:id ],
+        [ sh:class sc_schema:CellSet ;
+            sh:description "The cell sets that this cell belongs to." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path sc_schema:belongs_to_cell_sets ] ;
+    sh:targetClass sc_schema:Cell .
+
+sc_schema:OntologyTerm a sh:NodeShape ;
+    sh:closed false ;
+    sh:description "A term in an ontology." ;
+    sh:ignoredProperties ( sc_schema:predominantly_in sc_schema:present_in_cell_sets rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "The URI of the source ontology term." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path sc_schema:source_uri ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description of an entity." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path sc_schema:description ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for an entity." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path sc_schema:name ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for an entity." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path sc_schema:id ] ;
+    sh:targetClass sc_schema:OntologyTerm .
+
+sc_schema:MetadataAssociation a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "An association between a cell set and metadata with a cell count." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class sc_schema:OntologyTerm ;
+            sh:description "The ontology term." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path sc_schema:term ],
+        [ sh:datatype xsd:integer ;
+            sh:description "The number of cells with this metadata." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path sc_schema:count ] ;
+    sh:targetClass sc_schema:MetadataAssociation .
+
+sc_schema:CellSet a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A set of cells sharing a common annotation in a named obs column." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class sc_schema:MetadataAssociation ;
+            sh:description "The tissue associated with this cell set, with cell count." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 8 ;
+            sh:path sc_schema:has_tissue ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description of an entity." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path sc_schema:description ],
+        [ sh:class sc_schema:CellType ;
+            sh:description "A cell type that this cell set predominantly consists of." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path sc_schema:predominantly_consists_of ],
+        [ sh:class sc_schema:MetadataAssociation ;
+            sh:description "The developmental stage associated with this cell set, with cell count." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 10 ;
+            sh:path sc_schema:has_developmental_stage ],
+        [ sh:datatype xsd:integer ;
+            sh:description "The number of cells in the cell set." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path sc_schema:cell_count ],
+        [ sh:class sc_schema:MetadataAssociation ;
+            sh:description "The disease associated with this cell set, with cell count." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 9 ;
+            sh:path sc_schema:has_disease ],
+        [ sh:class sc_schema:MetadataAssociation ;
+            sh:description "The assay associated with this cell set, with cell count." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 11 ;
+            sh:path sc_schema:has_assay ],
+        [ sh:class sc_schema:CellSet ;
+            sh:description "A cell set that this cell set is a subset of." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path sc_schema:subset_of ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for an entity." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path sc_schema:id ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for an entity." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path sc_schema:name ],
+        [ sh:class sc_schema:Cell ;
+            sh:description "The cells in the cell set." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path sc_schema:cells ],
+        [ sh:datatype xsd:string ;
+            sh:description "The name of the observation column in the AnnData object." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path sc_schema:obs_column ] ;
+    sh:targetClass sc_schema:CellSet .
+

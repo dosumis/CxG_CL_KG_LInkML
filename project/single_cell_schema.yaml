@@ -7,7 +7,7 @@ version: 0.1.0
 
 prefixes:
   linkml: https://w3id.org/linkml/
-  schema: https://w3id.org/single-cell-schema/
+  sc_schema: https://w3id.org/single-cell-schema/
   UBERON: http://purl.obolibrary.org/obo/UBERON_
   CL: http://purl.obolibrary.org/obo/CL_
   MONDO: http://purl.obolibrary.org/obo/MONDO_
@@ -16,7 +16,7 @@ prefixes:
   HsapDv: http://purl.obolibrary.org/obo/HsapDv_
   MmusDv: http://purl.obolibrary.org/obo/MmusDv_
 
-default_prefix: schema
+default_prefix: sc_schema
 default_range: string
 
 imports:
@@ -26,7 +26,7 @@ classes:
   # Main entity class
   CellSet:
     description: A set of cells sharing a common annotation in a named obs column.
-    class_uri: schema:CellSet
+    class_uri: sc_schema:CellSet
     slots:
       - id
       - name
@@ -45,7 +45,7 @@ classes:
   OntologyTerm:
     description: A term in an ontology.
     abstract: true
-    class_uri: schema:OntologyTerm
+    class_uri: sc_schema:OntologyTerm
     slots:
       - id
       - name
@@ -61,7 +61,7 @@ classes:
   CellType:
     description: A cell type from the Cell Ontology.
     is_a: OntologyTerm
-    class_uri: schema:CellType
+    class_uri: sc_schema:CellType
     slots:
       - id
       - name
@@ -72,7 +72,7 @@ classes:
   Tissue:
     description: A tissue from the Uberon Ontology.
     is_a: OntologyTerm
-    class_uri: schema:Tissue
+    class_uri: sc_schema:Tissue
     slots:
       - id
       - name
@@ -83,7 +83,7 @@ classes:
   Disease:
     description: A disease from the Mondo Disease Ontology.
     is_a: OntologyTerm
-    class_uri: schema:Disease
+    class_uri: sc_schema:Disease
     slots:
       - id
       - name
@@ -94,7 +94,7 @@ classes:
   DevelopmentalStage:
     description: A developmental stage from the appropriate developmental stage ontology.
     is_a: OntologyTerm
-    class_uri: schema:DevelopmentalStage
+    class_uri: sc_schema:DevelopmentalStage
     slots:
       - id
       - name
@@ -105,7 +105,7 @@ classes:
   Assay:
     description: An assay from the Experimental Factor Ontology.
     is_a: OntologyTerm
-    class_uri: schema:Assay
+    class_uri: sc_schema:Assay
     slots:
       - id
       - name
@@ -115,14 +115,14 @@ classes:
 
   Cell:
     description: An individual cell in the dataset.
-    class_uri: schema:Cell
+    class_uri: sc_schema:Cell
     slots:
       - id
       - belongs_to_cell_sets
 
   Dataset:
     description: A single cell transcriptomics dataset.
-    class_uri: schema:Dataset
+    class_uri: sc_schema:Dataset
     slots:
       - id
       - name
@@ -238,18 +238,5 @@ slots:
   # MetadataAssociation class is defined as an additional class in the main classes section
 
 types:
-  # Re-use LinkML types
-  uriorcurie:
-    uri: linkml:Uriorcurie
-    base: str
-    description: A URI or CURIE
+  # Just use the LinkML types - no need to redefine
   
-  string:
-    uri: xsd:string
-    base: str
-    description: A character string
-  
-  integer:
-    uri: xsd:integer
-    base: int
-    description: An integer

@@ -1,0 +1,645 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix linkml: <https://w3id.org/linkml/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sc_schema: <https://w3id.org/single-cell-schema/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+sc_schema:Assay a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Assay" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sc_schema:source_uri ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sc_schema:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:present_in_cell_sets ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sc_schema:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:source_uri ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty sc_schema:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:source_uri ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sc_schema:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sc_schema:CellSet ;
+            owl:onProperty sc_schema:present_in_cell_sets ],
+        sc_schema:OntologyTerm ;
+    skos:definition "An assay from the Experimental Factor Ontology." ;
+    skos:exactMatch sc_schema:Assay ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:Dataset a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Dataset" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom sc_schema:CellSet ;
+            owl:onProperty sc_schema:cell_sets ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sc_schema:OntologyTerm ;
+            owl:onProperty sc_schema:ontology_terms ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sc_schema:Cell ;
+            owl:onProperty sc_schema:cells ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sc_schema:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:cell_sets ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:cells ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sc_schema:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:ontology_terms ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty sc_schema:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sc_schema:description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:id ] ;
+    skos:definition "A single cell transcriptomics dataset." ;
+    skos:exactMatch sc_schema:Dataset ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:DevelopmentalStage a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "DevelopmentalStage" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:source_uri ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sc_schema:CellSet ;
+            owl:onProperty sc_schema:present_in_cell_sets ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty sc_schema:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sc_schema:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sc_schema:source_uri ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:source_uri ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sc_schema:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:present_in_cell_sets ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sc_schema:description ],
+        sc_schema:OntologyTerm ;
+    skos:definition "A developmental stage from the appropriate developmental stage ontology." ;
+    skos:exactMatch sc_schema:DevelopmentalStage ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:Disease a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Disease" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:present_in_cell_sets ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sc_schema:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sc_schema:name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sc_schema:source_uri ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:source_uri ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sc_schema:CellSet ;
+            owl:onProperty sc_schema:present_in_cell_sets ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sc_schema:description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:source_uri ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty sc_schema:id ],
+        sc_schema:OntologyTerm ;
+    skos:definition "A disease from the Mondo Disease Ontology." ;
+    skos:exactMatch sc_schema:Disease ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:Tissue a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Tissue" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sc_schema:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sc_schema:CellSet ;
+            owl:onProperty sc_schema:present_in_cell_sets ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sc_schema:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:source_uri ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sc_schema:name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:source_uri ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:present_in_cell_sets ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sc_schema:source_uri ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty sc_schema:id ],
+        sc_schema:OntologyTerm ;
+    skos:definition "A tissue from the Uberon Ontology." ;
+    skos:exactMatch sc_schema:Tissue ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:belongs_to_cell_sets a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "belongs_to_cell_sets" ;
+    rdfs:range sc_schema:CellSet ;
+    skos:definition "The cell sets that this cell belongs to." ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:cell_sets a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cell_sets" ;
+    rdfs:range sc_schema:CellSet ;
+    skos:definition "The cell sets in the dataset." ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:has_assay a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "has_assay" ;
+    rdfs:range sc_schema:MetadataAssociation ;
+    skos:definition "The assay associated with this cell set, with cell count." ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:has_developmental_stage a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "has_developmental_stage" ;
+    rdfs:range sc_schema:MetadataAssociation ;
+    skos:definition "The developmental stage associated with this cell set, with cell count." ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:has_disease a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "has_disease" ;
+    rdfs:range sc_schema:MetadataAssociation ;
+    skos:definition "The disease associated with this cell set, with cell count." ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:has_tissue a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "has_tissue" ;
+    rdfs:range sc_schema:MetadataAssociation ;
+    skos:definition "The tissue associated with this cell set, with cell count." ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:ontology_terms a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "ontology_terms" ;
+    rdfs:range sc_schema:OntologyTerm ;
+    skos:definition "The ontology terms used in the dataset." ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:predominantly_in a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "predominantly_in" ;
+    rdfs:range sc_schema:CellSet ;
+    owl:inverseOf sc_schema:predominantly_consists_of ;
+    skos:definition "A cell set that predominantly consists of this cell type." ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:subset_of a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "subset_of" ;
+    rdfs:range sc_schema:CellSet ;
+    skos:definition "A cell set that this cell set is a subset of." ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:CellType a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "CellType" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sc_schema:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:predominantly_in ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:source_uri ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sc_schema:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sc_schema:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sc_schema:CellSet ;
+            owl:onProperty sc_schema:predominantly_in ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty sc_schema:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sc_schema:source_uri ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:source_uri ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:name ],
+        sc_schema:OntologyTerm ;
+    skos:definition "A cell type from the Cell Ontology." ;
+    skos:exactMatch sc_schema:CellType ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:cell_count a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cell_count" ;
+    rdfs:range linkml:Integer ;
+    skos:definition "The number of cells in the cell set." ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:count a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "count" ;
+    rdfs:range linkml:Integer ;
+    skos:definition "The number of cells with this metadata." ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:obs_column a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "obs_column" ;
+    rdfs:range linkml:String ;
+    skos:definition "The name of the observation column in the AnnData object." ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:term a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "term" ;
+    rdfs:range sc_schema:OntologyTerm ;
+    skos:definition "The ontology term." ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:Cell a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Cell" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty sc_schema:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:belongs_to_cell_sets ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sc_schema:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sc_schema:CellSet ;
+            owl:onProperty sc_schema:belongs_to_cell_sets ] ;
+    skos:definition "An individual cell in the dataset." ;
+    skos:exactMatch sc_schema:Cell ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:cells a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cells" ;
+    rdfs:range sc_schema:Cell ;
+    skos:definition "The cells in the cell set." ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:predominantly_consists_of a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "predominantly_consists_of" ;
+    rdfs:range sc_schema:CellType ;
+    skos:definition "A cell type that this cell set predominantly consists of." ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:MetadataAssociation a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "MetadataAssociation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:term ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Integer ;
+            owl:onProperty sc_schema:count ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:count ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sc_schema:OntologyTerm ;
+            owl:onProperty sc_schema:term ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:term ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:count ] ;
+    skos:definition "An association between a cell set and metadata with a cell count." ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:present_in_cell_sets a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "present_in_cell_sets" ;
+    rdfs:range sc_schema:CellSet ;
+    skos:definition "The cell sets that this ontology term is present in." ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:OntologyTerm a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "OntologyTerm" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty sc_schema:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sc_schema:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sc_schema:source_uri ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sc_schema:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:source_uri ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:source_uri ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sc_schema:id ] ;
+    skos:definition "A term in an ontology." ;
+    skos:exactMatch sc_schema:OntologyTerm ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:CellSet a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "CellSet" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty sc_schema:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:predominantly_consists_of ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sc_schema:MetadataAssociation ;
+            owl:onProperty sc_schema:has_tissue ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sc_schema:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:obs_column ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sc_schema:Cell ;
+            owl:onProperty sc_schema:cells ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:cell_count ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sc_schema:MetadataAssociation ;
+            owl:onProperty sc_schema:has_disease ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sc_schema:description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:predominantly_consists_of ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:has_disease ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Integer ;
+            owl:onProperty sc_schema:cell_count ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:cells ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:obs_column ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sc_schema:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:has_developmental_stage ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:cell_count ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sc_schema:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sc_schema:MetadataAssociation ;
+            owl:onProperty sc_schema:has_developmental_stage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sc_schema:obs_column ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sc_schema:CellSet ;
+            owl:onProperty sc_schema:subset_of ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sc_schema:CellType ;
+            owl:onProperty sc_schema:predominantly_consists_of ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:has_assay ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sc_schema:MetadataAssociation ;
+            owl:onProperty sc_schema:has_assay ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:has_tissue ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty sc_schema:subset_of ] ;
+    skos:definition "A set of cells sharing a common annotation in a named obs column." ;
+    skos:exactMatch sc_schema:CellSet ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:source_uri a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "source_uri" ;
+    rdfs:range linkml:Uriorcurie ;
+    skos:definition "The URI of the source ontology term." ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:description a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "description" ;
+    rdfs:range linkml:String ;
+    skos:definition "A human-readable description of an entity." ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:name a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "name" ;
+    rdfs:range linkml:String ;
+    skos:definition "A human-readable name for an entity." ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+sc_schema:id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "id" ;
+    rdfs:range linkml:Uriorcurie ;
+    skos:definition "A unique identifier for an entity." ;
+    skos:inScheme <https://w3id.org/single-cell-schema> .
+
+<https://w3id.org/single-cell-schema> a owl:Ontology ;
+    rdfs:label "single-cell-schema" ;
+    dcterms:license "MIT" ;
+    dcterms:title "Single Cell Transcriptomics Data Schema" ;
+    pav:version "0.1.0" ;
+    skos:definition "A LinkML schema for representing single cell transcriptomics data following the CellXGene schema." .
+

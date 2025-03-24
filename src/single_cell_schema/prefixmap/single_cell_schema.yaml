@@ -1,0 +1,11 @@
+{
+   "CL": "http://purl.obolibrary.org/obo/CL_",
+   "CVCL": "http://purl.obolibrary.org/obo/CVCL_",
+   "EFO": "http://purl.obolibrary.org/obo/EFO_",
+   "HsapDv": "http://purl.obolibrary.org/obo/HsapDv_",
+   "MONDO": "http://purl.obolibrary.org/obo/MONDO_",
+   "MmusDv": "http://purl.obolibrary.org/obo/MmusDv_",
+   "UBERON": "http://purl.obolibrary.org/obo/UBERON_",
+   "linkml": "https://w3id.org/linkml/",
+   "sc_schema": "https://w3id.org/single-cell-schema/"
+}
