@@ -1,0 +1,254 @@
+id: https://w3id.org/single-cell-schema
+name: single-cell-schema
+title: Single Cell Transcriptomics Data Schema
+description: A LinkML schema for representing single cell transcriptomics data following the CellXGene schema.
+license: MIT
+version: 0.1.0
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: https://w3id.org/single-cell-schema/
+  UBERON: http://purl.obolibrary.org/obo/UBERON_
+  CL: http://purl.obolibrary.org/obo/CL_
+  MONDO: http://purl.obolibrary.org/obo/MONDO_
+  EFO: http://purl.obolibrary.org/obo/EFO_
+  CVCL: http://purl.obolibrary.org/obo/CVCL_
+  HsapDv: http://purl.obolibrary.org/obo/HsapDv_
+  MmusDv: http://purl.obolibrary.org/obo/MmusDv_
+
+default_prefix: schema
+default_range: string
+
+imports:
+  - linkml:types
+
+classes:
+  # Main entity class
+  CellSet:
+    description: A set of cells sharing a common annotation in a named obs column.
+    class_uri: schema:CellSet
+    slots:
+      - id
+      - name
+      - description
+      - obs_column
+      - cell_count
+      - cells
+      - subset_of
+      - predominantly_consists_of
+      - has_tissue
+      - has_disease
+      - has_developmental_stage
+      - has_assay
+
+  # Ontology term classes
+  OntologyTerm:
+    description: A term in an ontology.
+    abstract: true
+    class_uri: schema:OntologyTerm
+    slots:
+      - id
+      - name
+      - description
+      - source_uri
+
+  CellType:
+    description: A cell type from the Cell Ontology.
+    is_a: OntologyTerm
+    class_uri: schema:CellType
+    slots:
+      - id
+      - name
+      - description
+      - source_uri
+      - predominantly_in
+  
+  Tissue:
+    description: A tissue from the Uberon Ontology.
+    is_a: OntologyTerm
+    class_uri: schema:Tissue
+    slots:
+      - id
+      - name
+      - description
+      - source_uri
+      - present_in_cell_sets
+  
+  Disease:
+    description: A disease from the Mondo Disease Ontology.
+    is_a: OntologyTerm
+    class_uri: schema:Disease
+    slots:
+      - id
+      - name
+      - description
+      - source_uri
+      - present_in_cell_sets
+  
+  DevelopmentalStage:
+    description: A developmental stage from the appropriate developmental stage ontology.
+    is_a: OntologyTerm
+    class_uri: schema:DevelopmentalStage
+    slots:
+      - id
+      - name
+      - description 
+      - source_uri
+      - present_in_cell_sets
+  
+  Assay:
+    description: An assay from the Experimental Factor Ontology.
+    is_a: OntologyTerm
+    class_uri: schema:Assay
+    slots:
+      - id
+      - name
+      - description
+      - source_uri
+      - present_in_cell_sets
+
+  Cell:
+    description: An individual cell in the dataset.
+    class_uri: schema:Cell
+    slots:
+      - id
+      - belongs_to_cell_sets
+
+  Dataset:
+    description: A single cell transcriptomics dataset.
+    class_uri: schema:Dataset
+    slots:
+      - id
+      - name
+      - description
+      - cell_sets
+      - cells
+      - ontology_terms
+
+slots:
+  id:
+    description: A unique identifier for an entity.
+    identifier: true
+    range: uriorcurie
+  
+  name:
+    description: A human-readable name for an entity.
+    range: string
+  
+  description:
+    description: A human-readable description of an entity.
+    range: string
+  
+  source_uri:
+    description: The URI of the source ontology term.
+    range: uriorcurie
+  
+  obs_column:
+    description: The name of the observation column in the AnnData object.
+    range: string
+  
+  cell_count:
+    description: The number of cells in the cell set.
+    range: integer
+  
+  cells:
+    description: The cells in the cell set.
+    range: Cell
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  
+  subset_of:
+    description: A cell set that this cell set is a subset of.
+    range: CellSet
+    multivalued: true
+  
+  predominantly_consists_of:
+    description: A cell type that this cell set predominantly consists of.
+    range: CellType
+  
+  predominantly_in:
+    description: A cell set that predominantly consists of this cell type.
+    range: CellSet
+    multivalued: true
+    inverse: predominantly_consists_of
+  
+  has_tissue:
+    description: The tissue associated with this cell set, with cell count.
+    range: MetadataAssociation
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  
+  has_disease:
+    description: The disease associated with this cell set, with cell count.
+    range: MetadataAssociation
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  
+  has_developmental_stage:
+    description: The developmental stage associated with this cell set, with cell count.
+    range: MetadataAssociation
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  
+  has_assay:
+    description: The assay associated with this cell set, with cell count.
+    range: MetadataAssociation
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  
+  present_in_cell_sets:
+    description: The cell sets that this ontology term is present in.
+    range: CellSet
+    multivalued: true
+  
+  belongs_to_cell_sets:
+    description: The cell sets that this cell belongs to.
+    range: CellSet
+    multivalued: true
+  
+  cell_sets:
+    description: The cell sets in the dataset.
+    range: CellSet
+    multivalued: true
+  
+  ontology_terms:
+    description: The ontology terms used in the dataset.
+    range: OntologyTerm
+    multivalued: true
+  
+  term:
+    description: The ontology term.
+    range: OntologyTerm
+  
+  count:
+    description: The number of cells with this metadata.
+    range: integer
+
+classes:
+  MetadataAssociation:
+    description: An association between a cell set and metadata with a cell count.
+    slots:
+      - term
+      - count
+
+types:
+  # Re-use LinkML types
+  uriorcurie:
+    uri: linkml:Uriorcurie
+    base: str
+    description: A URI or CURIE
+  
+  string:
+    uri: xsd:string
+    base: str
+    description: A character string
+  
+  integer:
+    uri: xsd:integer
+    base: int
+    description: An integer
