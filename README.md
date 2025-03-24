@@ -207,10 +207,13 @@ The LinkML project structure comes with various generated artifacts that can be 
 
 ### Python Data Classes
 
-The schema generates Python dataclasses for programmatic data manipulation. We provide an example script `src/data/dataclass_example.py` that demonstrates how to use these dataclasses:
+The schema generates Python dataclasses for programmatic data manipulation. We provide an example script that demonstrates how to use these dataclasses:
 
 ```bash
-# Using the Python module
+# Using the command line tool
+sc-dataclass-example
+
+# Or using the Python module
 python -m src.data.dataclass_example
 
 # This creates a sample dataset with:
@@ -283,6 +286,19 @@ The schema includes prefixes for key ontologies:
 - Mondo Disease Ontology (MONDO)
 - Experimental Factor Ontology (EFO)
 - Human and Mouse developmental stage ontologies (HsapDv, MmusDv)
+
+## Command-line Tools
+
+After installation, the following command-line tools are available:
+
+| Command | Description |
+|---------|-------------|
+| `sc-gen-sample` | Generate a sample AnnData (h5ad) file for testing |
+| `sc-populate-schema` | Extract data from an AnnData file and populate the LinkML schema |
+| `sc-validate` | Validate that data conforms to the LinkML schema |
+| `sc-visualize` | Create a visualization of the knowledge graph |
+| `sc-run-example` | Run an end-to-end example workflow |
+| `sc-dataclass-example` | Demonstrate using the generated Python dataclasses |
 
 ## Future Work
 

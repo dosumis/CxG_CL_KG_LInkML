@@ -26,11 +26,12 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "sc-gen-sample=data.generate_sample_data:main",
-            "sc-populate-schema=data.populate_schema:main",
-            "sc-validate=data.validate_data:main",
-            "sc-visualize=data.visualize_graph:main",
-            "sc-run-example=data.run_example:run_example",
+            "sc-gen-sample=src.data.generate_sample_data:main",
+            "sc-populate-schema=src.data.populate_schema:main",
+            "sc-validate=src.data.validate_data:main",
+            "sc-visualize=src.data.visualize_graph:main",
+            "sc-run-example=src.data.run_example:run_example",
+            "sc-dataclass-example=src.data.dataclass_example:main",
         ]
     },
     classifiers=[
