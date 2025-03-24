@@ -1,0 +1,87 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.7.0
+// version: 0.1.0
+// An assay from the Experimental Factor Ontology.
+message Assay
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  uriorcurie sourceUri = 0
+ repeated  cellSet presentInCellSets = 0
+ }
+// An individual cell in the dataset.
+message Cell
+ {
+  uriorcurie id = 0
+ repeated  cellSet belongsToCellSets = 0
+ }
+// A set of cells sharing a common annotation in a named obs column.
+message CellSet
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string obsColumn = 0
+  integer cellCount = 0
+ repeated  cell cells = 0
+ repeated  cellSet subsetOf = 0
+  cellType predominantlyConsistsOf = 0
+ repeated  metadataAssociation hasTissue = 0
+ repeated  metadataAssociation hasDisease = 0
+ repeated  metadataAssociation hasDevelopmentalStage = 0
+ repeated  metadataAssociation hasAssay = 0
+ }
+// A cell type from the Cell Ontology.
+message CellType
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  uriorcurie sourceUri = 0
+ repeated  cellSet predominantlyIn = 0
+ }
+// A single cell transcriptomics dataset.
+message Dataset
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+ repeated  cellSet cellSets = 0
+ repeated  cell cells = 0
+ repeated  ontologyTerm ontologyTerms = 0
+ }
+// A developmental stage from the appropriate developmental stage ontology.
+message DevelopmentalStage
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  uriorcurie sourceUri = 0
+ repeated  cellSet presentInCellSets = 0
+ }
+// A disease from the Mondo Disease Ontology.
+message Disease
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  uriorcurie sourceUri = 0
+ repeated  cellSet presentInCellSets = 0
+ }
+// An association between a cell set and metadata with a cell count.
+message MetadataAssociation
+ {
+  ontologyTerm term = 0
+  integer count = 0
+ }
+// A tissue from the Uberon Ontology.
+message Tissue
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  uriorcurie sourceUri = 0
+ repeated  cellSet presentInCellSets = 0
+ }

@@ -1,0 +1,460 @@
+{
+    "$defs": {
+        "Assay": {
+            "additionalProperties": false,
+            "description": "An assay from the Experimental Factor Ontology.",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description of an entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for an entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "present_in_cell_sets": {
+                    "description": "The cell sets that this ontology term is present in.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "source_uri": {
+                    "description": "The URI of the source ontology term.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Assay",
+            "type": "object"
+        },
+        "Cell": {
+            "additionalProperties": false,
+            "description": "An individual cell in the dataset.",
+            "properties": {
+                "belongs_to_cell_sets": {
+                    "description": "The cell sets that this cell belongs to.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Cell",
+            "type": "object"
+        },
+        "CellSet": {
+            "additionalProperties": false,
+            "description": "A set of cells sharing a common annotation in a named obs column.",
+            "properties": {
+                "cell_count": {
+                    "description": "The number of cells in the cell set.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "cells": {
+                    "description": "The cells in the cell set.",
+                    "items": {
+                        "$ref": "#/$defs/Cell"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description of an entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_assay": {
+                    "description": "The assay associated with this cell set, with cell count.",
+                    "items": {
+                        "$ref": "#/$defs/MetadataAssociation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_developmental_stage": {
+                    "description": "The developmental stage associated with this cell set, with cell count.",
+                    "items": {
+                        "$ref": "#/$defs/MetadataAssociation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_disease": {
+                    "description": "The disease associated with this cell set, with cell count.",
+                    "items": {
+                        "$ref": "#/$defs/MetadataAssociation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_tissue": {
+                    "description": "The tissue associated with this cell set, with cell count.",
+                    "items": {
+                        "$ref": "#/$defs/MetadataAssociation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "A human-readable name for an entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "obs_column": {
+                    "description": "The name of the observation column in the AnnData object.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "predominantly_consists_of": {
+                    "description": "A cell type that this cell set predominantly consists of.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "subset_of": {
+                    "description": "A cell set that this cell set is a subset of.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "CellSet",
+            "type": "object"
+        },
+        "CellType": {
+            "additionalProperties": false,
+            "description": "A cell type from the Cell Ontology.",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description of an entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for an entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "predominantly_in": {
+                    "description": "A cell set that predominantly consists of this cell type.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "source_uri": {
+                    "description": "The URI of the source ontology term.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "CellType",
+            "type": "object"
+        },
+        "Dataset": {
+            "additionalProperties": false,
+            "description": "A single cell transcriptomics dataset.",
+            "properties": {
+                "cell_sets": {
+                    "description": "The cell sets in the dataset.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "cells": {
+                    "description": "The cells in the cell set.",
+                    "items": {
+                        "$ref": "#/$defs/Cell"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description of an entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for an entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "ontology_terms": {
+                    "description": "The ontology terms used in the dataset.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Dataset",
+            "type": "object"
+        },
+        "DevelopmentalStage": {
+            "additionalProperties": false,
+            "description": "A developmental stage from the appropriate developmental stage ontology.",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description of an entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for an entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "present_in_cell_sets": {
+                    "description": "The cell sets that this ontology term is present in.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "source_uri": {
+                    "description": "The URI of the source ontology term.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "DevelopmentalStage",
+            "type": "object"
+        },
+        "Disease": {
+            "additionalProperties": false,
+            "description": "A disease from the Mondo Disease Ontology.",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description of an entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for an entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "present_in_cell_sets": {
+                    "description": "The cell sets that this ontology term is present in.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "source_uri": {
+                    "description": "The URI of the source ontology term.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Disease",
+            "type": "object"
+        },
+        "MetadataAssociation": {
+            "additionalProperties": false,
+            "description": "An association between a cell set and metadata with a cell count.",
+            "properties": {
+                "count": {
+                    "description": "The number of cells with this metadata.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "term": {
+                    "description": "The ontology term.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "MetadataAssociation",
+            "type": "object"
+        },
+        "Tissue": {
+            "additionalProperties": false,
+            "description": "A tissue from the Uberon Ontology.",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description of an entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for an entity.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for an entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "present_in_cell_sets": {
+                    "description": "The cell sets that this ontology term is present in.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "source_uri": {
+                    "description": "The URI of the source ontology term.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Tissue",
+            "type": "object"
+        }
+    },
+    "$id": "https://w3id.org/single-cell-schema",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": true,
+    "metamodel_version": "1.7.0",
+    "title": "single-cell-schema",
+    "type": "object",
+    "version": "0.1.0"
+}

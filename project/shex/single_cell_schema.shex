@@ -1,0 +1,146 @@
+# metamodel_version: 1.7.0
+# version: 0.1.0
+BASE <https://w3id.org/single-cell-schema/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX linkml: <https://w3id.org/linkml/>
+
+
+linkml:String xsd:string
+
+linkml:Integer xsd:integer
+
+linkml:Boolean xsd:boolean
+
+linkml:Float xsd:float
+
+linkml:Double xsd:double
+
+linkml:Decimal xsd:decimal
+
+linkml:Time xsd:time
+
+linkml:Date xsd:date
+
+linkml:Datetime xsd:dateTime
+
+linkml:DateOrDatetime linkml:DateOrDatetime
+
+linkml:Uriorcurie IRI
+
+linkml:Curie xsd:string
+
+linkml:Uri IRI
+
+linkml:Ncname xsd:string
+
+linkml:Objectidentifier IRI
+
+linkml:Nodeidentifier NONLITERAL
+
+linkml:Jsonpointer xsd:string
+
+linkml:Jsonpath xsd:string
+
+linkml:Sparqlpath xsd:string
+
+<Assay> CLOSED {
+    (  $<Assay_tes> (  &<OntologyTerm_tes> ;
+          rdf:type [ <OntologyTerm> ] ? ;
+          <present_in_cell_sets> @<CellSet> *
+       ) ;
+       rdf:type [ <Assay> ]
+    )
+}
+
+<Cell> CLOSED {
+    (  $<Cell_tes> <belongs_to_cell_sets> @<CellSet> * ;
+       rdf:type [ <Cell> ]
+    )
+}
+
+<CellSet> CLOSED {
+    (  $<CellSet_tes> (  <name> @linkml:String ? ;
+          <description> @linkml:String ? ;
+          <obs_column> @linkml:String ? ;
+          <cell_count> @linkml:Integer ? ;
+          <cells> @<Cell> * ;
+          <subset_of> @<CellSet> * ;
+          <predominantly_consists_of> @<CellType> ? ;
+          <has_tissue> @<MetadataAssociation> * ;
+          <has_disease> @<MetadataAssociation> * ;
+          <has_developmental_stage> @<MetadataAssociation> * ;
+          <has_assay> @<MetadataAssociation> *
+       ) ;
+       rdf:type [ <CellSet> ]
+    )
+}
+
+<CellType> CLOSED {
+    (  $<CellType_tes> (  &<OntologyTerm_tes> ;
+          rdf:type [ <OntologyTerm> ] ? ;
+          <predominantly_in> @<CellSet> *
+       ) ;
+       rdf:type [ <CellType> ]
+    )
+}
+
+<Dataset> CLOSED {
+    (  $<Dataset_tes> (  <name> @linkml:String ? ;
+          <description> @linkml:String ? ;
+          <cell_sets> @<CellSet> * ;
+          <cells> @<Cell> * ;
+          <ontology_terms> @<OntologyTerm> *
+       ) ;
+       rdf:type [ <Dataset> ]
+    )
+}
+
+<DevelopmentalStage> CLOSED {
+    (  $<DevelopmentalStage_tes> (  &<OntologyTerm_tes> ;
+          rdf:type [ <OntologyTerm> ] ? ;
+          <present_in_cell_sets> @<CellSet> *
+       ) ;
+       rdf:type [ <DevelopmentalStage> ]
+    )
+}
+
+<Disease> CLOSED {
+    (  $<Disease_tes> (  &<OntologyTerm_tes> ;
+          rdf:type [ <OntologyTerm> ] ? ;
+          <present_in_cell_sets> @<CellSet> *
+       ) ;
+       rdf:type [ <Disease> ]
+    )
+}
+
+<MetadataAssociation> CLOSED {
+    (  $<MetadataAssociation_tes> (  <term> @<OntologyTerm> ? ;
+          <count> @linkml:Integer ?
+       ) ;
+       rdf:type [ <MetadataAssociation> ] ?
+    )
+}
+
+<OntologyTerm>  (
+    @<Assay> OR @<CellType> OR @<DevelopmentalStage> OR @<Disease> OR @<Tissue>
+)
+
+<OntologyTerm_struct> {
+    (  $<OntologyTerm_tes> (  <name> @linkml:String ? ;
+          <description> @linkml:String ? ;
+          <source_uri> @linkml:Uriorcurie ?
+       ) ;
+       rdf:type [ <OntologyTerm> ]
+    )
+}
+
+<Tissue> CLOSED {
+    (  $<Tissue_tes> (  &<OntologyTerm_tes> ;
+          rdf:type [ <OntologyTerm> ] ? ;
+          <present_in_cell_sets> @<CellSet> *
+       ) ;
+       rdf:type [ <Tissue> ]
+    )
+}
+

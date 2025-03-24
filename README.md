@@ -11,6 +11,36 @@ This project provides a LinkML schema for modeling single cell transcriptomics d
 - Linking cell sets to ontology terms for cell types, tissues, diseases, developmental stages, and assays
 - Recording metadata associations with cell counts
 
+## Project Structure
+
+This project has been structured following LinkML best practices:
+
+```
+├── README.md                 # Project documentation
+├── setup.py                  # Package installation configuration
+└── src/                      # Source code directory
+    ├── data/                 # Data processing utilities
+    │   ├── generate_sample_data.py     # Tool to generate sample AnnData files
+    │   ├── populate_schema.py          # Tool to convert AnnData to LinkML instance data 
+    │   ├── run_example.py              # End-to-end example script
+    │   ├── validate_data.py            # Validation tool for LinkML instance data
+    │   └── visualize_graph.py          # Knowledge graph visualization tool
+    └── single_cell_schema/   # Schema and generated artifacts
+        ├── docs/             # Markdown documentation for schema
+        ├── excel/            # Excel representation of schema
+        ├── graphql/          # GraphQL schema
+        ├── jsonld/           # JSON-LD context
+        ├── jsonschema/       # JSON Schema
+        ├── owl/              # OWL/RDF representation
+        ├── prefixmap/        # Prefix map
+        ├── protobuf/         # Protocol Buffers schema
+        ├── shacl/            # SHACL constraints
+        ├── shex/             # ShEx schema
+        ├── single_cell_schema.py  # Python dataclasses
+        ├── single_cell_schema.yaml  # LinkML schema definition
+        └── sqlschema/        # SQL schema
+```
+
 ## Schema Design
 
 The schema is designed around these key entities:
@@ -37,8 +67,15 @@ Key relationships include:
 
 ### Installation
 
+You can install this package directly from the repository:
+
 ```bash
-pip install linkml anndata scanpy
+# Clone the repository
+git clone https://github.com/yourusername/CxG_CL_KG_LInkML.git
+cd CxG_CL_KG_LInkML
+
+# Install the package in development mode
+pip install -e .
 ```
 
 ### Quick Start: Run the Example
@@ -46,7 +83,11 @@ pip install linkml anndata scanpy
 The easiest way to get started is to run the example script, which demonstrates the complete workflow:
 
 ```bash
-python run_example.py
+# Using the installed command line tool
+sc-run-example
+
+# Or using the Python module
+python -m src.data.run_example
 ```
 
 This script will:
@@ -57,10 +98,14 @@ This script will:
 
 ### Generating Sample Data
 
-For testing purposes, you can generate a sample AnnData (h5ad) file using the provided script:
+For testing purposes, you can generate a sample AnnData (h5ad) file using the provided tool:
 
 ```bash
-python generate_sample_data.py --output sample_data.h5ad --n-cells 1000 --n-genes 200
+# Using the installed command line tool
+sc-gen-sample --output sample_data.h5ad --n-cells 1000 --n-genes 200
+
+# Or using the Python module
+python -m src.data.generate_sample_data --output sample_data.h5ad --n-cells 1000 --n-genes 200
 ```
 
 This will create a realistic single-cell dataset with:
@@ -71,14 +116,14 @@ This will create a realistic single-cell dataset with:
 
 ### Populating the Schema from an AnnData file
 
-Use the `populate_schema.py` script to extract data from an AnnData h5ad file and create a knowledge graph according to the schema:
+Use the populate-schema tool to extract data from an AnnData h5ad file and create a knowledge graph according to the schema:
 
 ```bash
-# If you have your own h5ad file:
-python populate_schema.py path/to/dataset.h5ad --output my_dataset.json
+# Using the installed command line tool
+sc-populate-schema path/to/dataset.h5ad --output my_dataset.json
 
-# Or using the generated sample data:
-python populate_schema.py sample_data.h5ad --output sample_dataset.json
+# Or using the Python module
+python -m src.data.populate_schema path/to/dataset.h5ad --output my_dataset.json
 ```
 
 ### Validating the Schema
@@ -86,14 +131,18 @@ python populate_schema.py sample_data.h5ad --output sample_dataset.json
 To validate that your data conforms to the LinkML schema:
 
 ```bash
-python validate_data.py sample_dataset.json
+# Using the installed command line tool
+sc-validate sample_dataset.json
+
+# Or using the Python module
+python -m src.data.validate_data sample_dataset.json
 ```
 
 This tool will check all entities and relationships to ensure they follow the schema constraints. If the data is valid, you'll see a success message. If there are validation errors, they will be displayed with details about what went wrong.
 
 Command line options:
 ```
-usage: validate_data.py [-h] [--schema SCHEMA] [--verbose] data_file
+usage: sc-validate [-h] [--schema SCHEMA] [--verbose] data_file
 
 Validate data against the LinkML schema
 
@@ -112,7 +161,11 @@ optional arguments:
 To visualize the relationships in your data as a knowledge graph:
 
 ```bash
-python visualize_graph.py sample_dataset.json --output knowledge_graph.png
+# Using the installed command line tool
+sc-visualize sample_dataset.json --output knowledge_graph.png
+
+# Or using the Python module
+python -m src.data.visualize_graph sample_dataset.json --output knowledge_graph.png
 ```
 
 This will create a visual representation of the knowledge graph with:
@@ -123,7 +176,7 @@ This will create a visual representation of the knowledge graph with:
 
 Command line options:
 ```
-usage: visualize_graph.py [-h] [--output OUTPUT] [--title TITLE] [--no-metadata] [--max-nodes MAX_NODES] [--verbose] data_file
+usage: sc-visualize [-h] [--output OUTPUT] [--title TITLE] [--no-metadata] [--max-nodes MAX_NODES] [--verbose] data_file
 
 Visualize the knowledge graph from single cell transcriptomics data
 
@@ -145,54 +198,76 @@ optional arguments:
 For large datasets, you may want to limit the visualization to a subset of nodes:
 
 ```bash
-python visualize_graph.py sample_dataset.json --max-nodes 50
+sc-visualize sample_dataset.json --max-nodes 50
 ```
 
-#### Command Line Options
+## Generated LinkML Artifacts
 
+The LinkML project structure comes with various generated artifacts that can be used for different purposes:
+
+### Python Data Classes
+
+The schema generates Python dataclasses for programmatic data manipulation. We provide an example script that demonstrates how to use these dataclasses:
+
+```bash
+# Using the command line tool
+sc-dataclass-example
+
+# Or using the Python module
+python -m src.data.dataclass_example
+
+# This creates a sample dataset with:
+# - T cells and B cells as cell types
+# - Blood as a tissue
+# - Healthy control as a disease
+# - Adult as a developmental stage
+# - 10x 3' v3 as an assay
+# - Two cell sets linked to all these terms
 ```
-usage: populate_schema.py [-h] [--output OUTPUT] [--format {json,yaml}]
-                          [--dataset-name DATASET_NAME]
-                          [--cell-type-columns CELL_TYPE_COLUMNS [CELL_TYPE_COLUMNS ...]]
-                          [--tissue-column TISSUE_COLUMN]
-                          [--disease-column DISEASE_COLUMN]
-                          [--dev-stage-column DEV_STAGE_COLUMN]
-                          [--assay-column ASSAY_COLUMN]
-                          input_file
 
-Populate single cell transcriptomics schema from AnnData (h5ad) files
+The dataclasses provide type checking and validation according to the schema:
 
-positional arguments:
-  input_file            Path to the input h5ad file
+```python
+from src.single_cell_schema.single_cell_schema import CellSet, CellType, Dataset, MetadataAssociation
 
-optional arguments:
-  -h, --help            show this help message and exit
-  --output OUTPUT, -o OUTPUT
-                        Path to the output file (default: dataset.json)
-  --format {json,yaml}, -f {json,yaml}
-                        Output format (default: json)
-  --dataset-name DATASET_NAME
-                        Name of the dataset (default: derived from input filename)
-  --cell-type-columns CELL_TYPE_COLUMNS [CELL_TYPE_COLUMNS ...]
-                        Column names in AnnData.obs that contain cell type annotations
-                        (default: ['cell_type', 'cell_ontology_term'])
-  --tissue-column TISSUE_COLUMN
-                        Column name in AnnData.obs that contains tissue annotations
-                        (default: 'tissue')
-  --disease-column DISEASE_COLUMN
-                        Column name in AnnData.obs that contains disease annotations
-                        (default: 'disease')
-  --dev-stage-column DEV_STAGE_COLUMN
-                        Column name in AnnData.obs that contains developmental stage annotations
-                        (default: 'development_stage')
-  --assay-column ASSAY_COLUMN
-                        Column name in AnnData.obs that contains assay annotations
-                        (default: 'assay')
+# Create a cell set
+cell_set = CellSet(
+    id="cs:123",
+    name="T cells",
+    cell_count=1000,
+    obs_column="cell_type",
+    has_tissue=[
+        MetadataAssociation(
+            term="UBERON:0000178",  # blood
+            count=1000
+        )
+    ]
+)
+
+# The dataclasses validate required fields and types
+# For example, this would raise an error because cell_count must be an integer:
+# cell_set = CellSet(id="cs:123", name="T cells", cell_count="1000")
 ```
+
+### RDF/OWL Representation
+
+The OWL representation (`src/single_cell_schema/owl/single_cell_schema.owl.ttl`) can be loaded into RDF triple stores for SPARQL querying or integrated with other ontologies.
+
+### JSON Schema
+
+The JSON Schema representation (`src/single_cell_schema/jsonschema/single_cell_schema.schema.json`) can be used for validating JSON data against the schema.
+
+### GraphQL Schema
+
+The GraphQL schema (`src/single_cell_schema/graphql/single_cell_schema.graphql`) can be used to set up a GraphQL API for querying the data.
+
+### SQL Schema
+
+The SQL schema (`src/single_cell_schema/sqlschema/single_cell_schema.sql`) can be used to create a relational database to store the data.
 
 ## Schema Details
 
-The schema is defined in `single_cell_schema.yaml` and follows the LinkML specification.
+The schema is defined in `src/single_cell_schema/single_cell_schema.yaml` and follows the LinkML specification.
 
 ### Key Classes
 
@@ -211,6 +286,33 @@ The schema includes prefixes for key ontologies:
 - Mondo Disease Ontology (MONDO)
 - Experimental Factor Ontology (EFO)
 - Human and Mouse developmental stage ontologies (HsapDv, MmusDv)
+
+## Command-line Tools
+
+After installation, the following command-line tools are available:
+
+| Command | Description |
+|---------|-------------|
+| `sc-gen-sample` | Generate a sample AnnData (h5ad) file for testing |
+| `sc-populate-schema` | Extract data from an AnnData file and populate the LinkML schema |
+| `sc-validate` | Validate that data conforms to the LinkML schema |
+| `sc-visualize` | Create a visualization of the knowledge graph |
+| `sc-run-example` | Run an end-to-end example workflow |
+| `sc-dataclass-example` | Demonstrate using the generated Python dataclasses |
+
+## Future Work
+
+Some potential enhancements to consider:
+
+1. **Integration with existing data portals**: Interface with the CellXGene Data Portal and other single-cell repositories to import data directly.
+
+2. **Graph database support**: Add exporters for graph databases like Neo4j, to enable more powerful querying of the knowledge graph.
+
+3. **Web-based visualization**: Create a web application to interactively explore the cell set relationships and metadata.
+
+4. **Inference capabilities**: Add support for inferring additional relationships based on the ontology hierarchies.
+
+5. **Data standardization**: Add more validation rules to ensure data quality and consistency.
 
 ## License
 

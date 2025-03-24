@@ -1,0 +1,16 @@
+include README.md
+include LICENSE
+include MANIFEST.in
+include setup.py
+recursive-include src/single_cell_schema *.yaml
+recursive-include src/single_cell_schema/owl *.ttl
+recursive-include src/single_cell_schema/shacl *.ttl
+recursive-include src/single_cell_schema/jsonld *.jsonld
+recursive-include src/single_cell_schema/jsonschema *.json
+recursive-include src/single_cell_schema/graphql *.graphql
+recursive-include src/single_cell_schema/shex *.shex
+recursive-include src/single_cell_schema/excel *.xlsx
+recursive-include src/single_cell_schema/prefixmap *.yaml
+recursive-include src/single_cell_schema/protobuf *.proto
+recursive-include src/single_cell_schema/sqlschema *.sql
+recursive-include src/single_cell_schema/docs *.md

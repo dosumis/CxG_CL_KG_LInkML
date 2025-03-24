@@ -1,0 +1,93 @@
+# metamodel_version: 1.7.0
+# version: 0.1.0
+type Assay
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    sourceUri: Uriorcurie
+    presentInCellSets: [CellSet]
+  }
+
+type Cell
+  {
+    id: Uriorcurie!
+    belongsToCellSets: [CellSet]
+  }
+
+type CellSet
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    obsColumn: String
+    cellCount: Integer
+    cells: [Cell]
+    subsetOf: [CellSet]
+    predominantlyConsistsOf: CellType
+    hasTissue: [MetadataAssociation]
+    hasDisease: [MetadataAssociation]
+    hasDevelopmentalStage: [MetadataAssociation]
+    hasAssay: [MetadataAssociation]
+  }
+
+type CellType
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    sourceUri: Uriorcurie
+    predominantlyIn: [CellSet]
+  }
+
+type Dataset
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    cellSets: [CellSet]
+    cells: [Cell]
+    ontologyTerms: [OntologyTerm]
+  }
+
+type DevelopmentalStage
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    sourceUri: Uriorcurie
+    presentInCellSets: [CellSet]
+  }
+
+type Disease
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    sourceUri: Uriorcurie
+    presentInCellSets: [CellSet]
+  }
+
+type MetadataAssociation
+  {
+    term: OntologyTerm
+    count: Integer
+  }
+
+interface OntologyTerm
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    sourceUri: Uriorcurie
+  }
+
+type Tissue
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    sourceUri: Uriorcurie
+    presentInCellSets: [CellSet]
+  }
+
