@@ -1,25 +1,20 @@
 {
   "dataset": {
-    "id": "schema:Dataset_cfe5d936",
-    "name": "Sample Dataset",
+    "id": "schema:Dataset_64b167fa",
+    "name": "sample_data",
     "description": "Single cell transcriptomics dataset with 1000 cells",
     "cell_sets": [
-      "schema:CellSet_CellTypeL1_ce8654ce",
-      "schema:CellSet_CellTypeL1_1186d2e5",
-      "schema:CellSet_CellTypeL1_ba1d2ced",
-      "schema:CellSet_CellTypeL1_8f25ac05",
-      "schema:CellSet_CellType_c2c6223e",
-      "schema:CellSet_CellType_155e37bc",
-      "schema:CellSet_CellType_5e19e272",
-      "schema:CellSet_CellType_584f642b",
-      "schema:CellSet_CellType_ad7ef29f",
-      "schema:CellSet_CellType_f83b4f6c"
+      "schema:CellSet_CellType_503173fb",
+      "schema:CellSet_CellType_5bf409de",
+      "schema:CellSet_CellType_38b44659",
+      "schema:CellSet_CellType_5864fe84",
+      "schema:CellSet_CellType_3a9b27a7",
+      "schema:CellSet_CellType_62f0f73b"
     ],
     "ontology_terms": [
       "CL:0000236",
       "CL:0000775",
       "CL:0000576",
-      "CL:0000084",
       "CL:0000814",
       "CL:0000813",
       "CL:0000939",
@@ -42,379 +37,12 @@
   },
   "cell_sets": [
     {
-      "id": "schema:CellSet_CellTypeL1_ce8654ce",
-      "name": "CL:0000236 cells from cell_type_l1",
-      "description": "Cells annotated as CL:0000236 in the cell_type_l1 column",
-      "obs_column": "cell_type_l1",
-      "cell_count": 252,
-      "predominantly_consists_of": "CL:0000236",
-      "has_tissue": [
-        {
-          "term": "UBERON:0002509",
-          "count": 45,
-          "cell_ratio": 0.17857142857142858
-        },
-        {
-          "term": "UBERON:0002370",
-          "count": 55,
-          "cell_ratio": 0.21825396825396826
-        },
-        {
-          "term": "UBERON:0002106",
-          "count": 52,
-          "cell_ratio": 0.20634920634920634
-        },
-        {
-          "term": "UBERON:0000178",
-          "count": 51,
-          "cell_ratio": 0.20238095238095238
-        },
-        {
-          "term": "UBERON:0002371",
-          "count": 49,
-          "cell_ratio": 0.19444444444444445
-        }
-      ],
-      "has_disease": [
-        {
-          "term": "MONDO:0005812",
-          "count": 172,
-          "cell_ratio": 0.6825396825396826
-        },
-        {
-          "term": "MONDO:0005299",
-          "count": 27,
-          "cell_ratio": 0.10714285714285714
-        },
-        {
-          "term": "MONDO:0007179",
-          "count": 30,
-          "cell_ratio": 0.11904761904761904
-        },
-        {
-          "term": "MONDO:0005109",
-          "count": 23,
-          "cell_ratio": 0.09126984126984126
-        }
-      ],
-      "has_developmental_stage": [
-        {
-          "term": "HsapDv:0000087",
-          "count": 180,
-          "cell_ratio": 0.7142857142857143
-        },
-        {
-          "term": "HsapDv:0000246",
-          "count": 38,
-          "cell_ratio": 0.15079365079365079
-        },
-        {
-          "term": "HsapDv:0000082",
-          "count": 34,
-          "cell_ratio": 0.1349206349206349
-        }
-      ],
-      "has_assay": [
-        {
-          "term": "EFO:0010550",
-          "count": 48,
-          "cell_ratio": 0.19047619047619047
-        },
-        {
-          "term": "EFO:0008913",
-          "count": 124,
-          "cell_ratio": 0.49206349206349204
-        },
-        {
-          "term": "EFO:0008914",
-          "count": 80,
-          "cell_ratio": 0.31746031746031744
-        }
-      ]
-    },
-    {
-      "id": "schema:CellSet_CellTypeL1_1186d2e5",
-      "name": "CL:0000775 cells from cell_type_l1",
-      "description": "Cells annotated as CL:0000775 in the cell_type_l1 column",
-      "obs_column": "cell_type_l1",
-      "cell_count": 262,
-      "predominantly_consists_of": "CL:0000775",
-      "has_tissue": [
-        {
-          "term": "UBERON:0002509",
-          "count": 54,
-          "cell_ratio": 0.20610687022900764
-        },
-        {
-          "term": "UBERON:0002370",
-          "count": 55,
-          "cell_ratio": 0.2099236641221374
-        },
-        {
-          "term": "UBERON:0002106",
-          "count": 64,
-          "cell_ratio": 0.24427480916030533
-        },
-        {
-          "term": "UBERON:0000178",
-          "count": 39,
-          "cell_ratio": 0.14885496183206107
-        },
-        {
-          "term": "UBERON:0002371",
-          "count": 50,
-          "cell_ratio": 0.19083969465648856
-        }
-      ],
-      "has_disease": [
-        {
-          "term": "MONDO:0005812",
-          "count": 198,
-          "cell_ratio": 0.7557251908396947
-        },
-        {
-          "term": "MONDO:0005299",
-          "count": 22,
-          "cell_ratio": 0.08396946564885496
-        },
-        {
-          "term": "MONDO:0007179",
-          "count": 21,
-          "cell_ratio": 0.08015267175572519
-        },
-        {
-          "term": "MONDO:0005109",
-          "count": 21,
-          "cell_ratio": 0.08015267175572519
-        }
-      ],
-      "has_developmental_stage": [
-        {
-          "term": "HsapDv:0000087",
-          "count": 192,
-          "cell_ratio": 0.732824427480916
-        },
-        {
-          "term": "HsapDv:0000246",
-          "count": 28,
-          "cell_ratio": 0.10687022900763359
-        },
-        {
-          "term": "HsapDv:0000082",
-          "count": 42,
-          "cell_ratio": 0.16030534351145037
-        }
-      ],
-      "has_assay": [
-        {
-          "term": "EFO:0010550",
-          "count": 38,
-          "cell_ratio": 0.1450381679389313
-        },
-        {
-          "term": "EFO:0008913",
-          "count": 134,
-          "cell_ratio": 0.5114503816793893
-        },
-        {
-          "term": "EFO:0008914",
-          "count": 90,
-          "cell_ratio": 0.3435114503816794
-        }
-      ]
-    },
-    {
-      "id": "schema:CellSet_CellTypeL1_ba1d2ced",
-      "name": "CL:0000576 cells from cell_type_l1",
-      "description": "Cells annotated as CL:0000576 in the cell_type_l1 column",
-      "obs_column": "cell_type_l1",
-      "cell_count": 229,
-      "predominantly_consists_of": "CL:0000576",
-      "has_tissue": [
-        {
-          "term": "UBERON:0002509",
-          "count": 40,
-          "cell_ratio": 0.17467248908296942
-        },
-        {
-          "term": "UBERON:0002370",
-          "count": 46,
-          "cell_ratio": 0.20087336244541484
-        },
-        {
-          "term": "UBERON:0002106",
-          "count": 60,
-          "cell_ratio": 0.26200873362445415
-        },
-        {
-          "term": "UBERON:0000178",
-          "count": 35,
-          "cell_ratio": 0.15283842794759825
-        },
-        {
-          "term": "UBERON:0002371",
-          "count": 48,
-          "cell_ratio": 0.2096069868995633
-        }
-      ],
-      "has_disease": [
-        {
-          "term": "MONDO:0005812",
-          "count": 162,
-          "cell_ratio": 0.7074235807860262
-        },
-        {
-          "term": "MONDO:0005299",
-          "count": 24,
-          "cell_ratio": 0.10480349344978165
-        },
-        {
-          "term": "MONDO:0007179",
-          "count": 21,
-          "cell_ratio": 0.09170305676855896
-        },
-        {
-          "term": "MONDO:0005109",
-          "count": 22,
-          "cell_ratio": 0.09606986899563319
-        }
-      ],
-      "has_developmental_stage": [
-        {
-          "term": "HsapDv:0000087",
-          "count": 154,
-          "cell_ratio": 0.6724890829694323
-        },
-        {
-          "term": "HsapDv:0000246",
-          "count": 36,
-          "cell_ratio": 0.1572052401746725
-        },
-        {
-          "term": "HsapDv:0000082",
-          "count": 39,
-          "cell_ratio": 0.1703056768558952
-        }
-      ],
-      "has_assay": [
-        {
-          "term": "EFO:0010550",
-          "count": 50,
-          "cell_ratio": 0.2183406113537118
-        },
-        {
-          "term": "EFO:0008913",
-          "count": 124,
-          "cell_ratio": 0.5414847161572053
-        },
-        {
-          "term": "EFO:0008914",
-          "count": 55,
-          "cell_ratio": 0.24017467248908297
-        }
-      ]
-    },
-    {
-      "id": "schema:CellSet_CellTypeL1_8f25ac05",
-      "name": "CL:0000084 cells from cell_type_l1",
-      "description": "Cells annotated as CL:0000084 in the cell_type_l1 column",
-      "obs_column": "cell_type_l1",
-      "cell_count": 257,
-      "predominantly_consists_of": "CL:0000084",
-      "has_tissue": [
-        {
-          "term": "UBERON:0002509",
-          "count": 44,
-          "cell_ratio": 0.17120622568093385
-        },
-        {
-          "term": "UBERON:0002370",
-          "count": 69,
-          "cell_ratio": 0.26848249027237353
-        },
-        {
-          "term": "UBERON:0002106",
-          "count": 55,
-          "cell_ratio": 0.2140077821011673
-        },
-        {
-          "term": "UBERON:0000178",
-          "count": 43,
-          "cell_ratio": 0.16731517509727625
-        },
-        {
-          "term": "UBERON:0002371",
-          "count": 46,
-          "cell_ratio": 0.17898832684824903
-        }
-      ],
-      "has_disease": [
-        {
-          "term": "MONDO:0005812",
-          "count": 185,
-          "cell_ratio": 0.7198443579766537
-        },
-        {
-          "term": "MONDO:0005299",
-          "count": 25,
-          "cell_ratio": 0.09727626459143969
-        },
-        {
-          "term": "MONDO:0007179",
-          "count": 25,
-          "cell_ratio": 0.09727626459143969
-        },
-        {
-          "term": "MONDO:0005109",
-          "count": 22,
-          "cell_ratio": 0.08560311284046693
-        }
-      ],
-      "has_developmental_stage": [
-        {
-          "term": "HsapDv:0000087",
-          "count": 186,
-          "cell_ratio": 0.7237354085603113
-        },
-        {
-          "term": "HsapDv:0000246",
-          "count": 44,
-          "cell_ratio": 0.17120622568093385
-        },
-        {
-          "term": "HsapDv:0000082",
-          "count": 27,
-          "cell_ratio": 0.10505836575875487
-        }
-      ],
-      "has_assay": [
-        {
-          "term": "EFO:0010550",
-          "count": 52,
-          "cell_ratio": 0.20233463035019456
-        },
-        {
-          "term": "EFO:0008913",
-          "count": 117,
-          "cell_ratio": 0.45525291828793774
-        },
-        {
-          "term": "EFO:0008914",
-          "count": 88,
-          "cell_ratio": 0.3424124513618677
-        }
-      ]
-    },
-    {
-      "id": "schema:CellSet_CellType_c2c6223e",
+      "id": "schema:CellSet_CellType_503173fb",
       "name": "CL:0000236 cells from cell_type",
       "description": "Cells annotated as CL:0000236 in the cell_type column",
       "obs_column": "cell_type",
       "cell_count": 170,
       "predominantly_consists_of": "CL:0000236",
-      "subset_of": [
-        "schema:CellSet_CellTypeL1_ce8654ce"
-      ],
       "has_tissue": [
         {
           "term": "UBERON:0002509",
@@ -500,7 +128,7 @@
       ]
     },
     {
-      "id": "schema:CellSet_CellType_155e37bc",
+      "id": "schema:CellSet_CellType_5bf409de",
       "name": "CL:0000775 cells from cell_type",
       "description": "Cells annotated as CL:0000775 in the cell_type column",
       "obs_column": "cell_type",
@@ -591,7 +219,7 @@
       ]
     },
     {
-      "id": "schema:CellSet_CellType_5e19e272",
+      "id": "schema:CellSet_CellType_38b44659",
       "name": "CL:0000576 cells from cell_type",
       "description": "Cells annotated as CL:0000576 in the cell_type column",
       "obs_column": "cell_type",
@@ -682,15 +310,12 @@
       ]
     },
     {
-      "id": "schema:CellSet_CellType_584f642b",
+      "id": "schema:CellSet_CellType_5864fe84",
       "name": "CL:0000814 cells from cell_type",
       "description": "Cells annotated as CL:0000814 in the cell_type column",
       "obs_column": "cell_type",
       "cell_count": 119,
       "predominantly_consists_of": "CL:0000814",
-      "subset_of": [
-        "schema:CellSet_CellTypeL1_8f25ac05"
-      ],
       "has_tissue": [
         {
           "term": "UBERON:0002509",
@@ -776,15 +401,12 @@
       ]
     },
     {
-      "id": "schema:CellSet_CellType_ad7ef29f",
+      "id": "schema:CellSet_CellType_3a9b27a7",
       "name": "CL:0000813 cells from cell_type",
       "description": "Cells annotated as CL:0000813 in the cell_type column",
       "obs_column": "cell_type",
       "cell_count": 82,
       "predominantly_consists_of": "CL:0000813",
-      "subset_of": [
-        "schema:CellSet_CellTypeL1_ce8654ce"
-      ],
       "has_tissue": [
         {
           "term": "UBERON:0002509",
@@ -870,15 +492,12 @@
       ]
     },
     {
-      "id": "schema:CellSet_CellType_f83b4f6c",
+      "id": "schema:CellSet_CellType_62f0f73b",
       "name": "CL:0000939 cells from cell_type",
       "description": "Cells annotated as CL:0000939 in the cell_type column",
       "obs_column": "cell_type",
       "cell_count": 138,
       "predominantly_consists_of": "CL:0000939",
-      "subset_of": [
-        "schema:CellSet_CellTypeL1_8f25ac05"
-      ],
       "has_tissue": [
         {
           "term": "UBERON:0002509",
@@ -971,8 +590,7 @@
       "description": "Cell type: CL:0000236",
       "source_uri": "CL:0000236",
       "predominantly_in": [
-        "schema:CellSet_CellTypeL1_ce8654ce",
-        "schema:CellSet_CellType_c2c6223e"
+        "schema:CellSet_CellType_503173fb"
       ]
     },
     {
@@ -981,8 +599,7 @@
       "description": "Cell type: CL:0000775",
       "source_uri": "CL:0000775",
       "predominantly_in": [
-        "schema:CellSet_CellTypeL1_1186d2e5",
-        "schema:CellSet_CellType_155e37bc"
+        "schema:CellSet_CellType_5bf409de"
       ]
     },
     {
@@ -991,17 +608,7 @@
       "description": "Cell type: CL:0000576",
       "source_uri": "CL:0000576",
       "predominantly_in": [
-        "schema:CellSet_CellTypeL1_ba1d2ced",
-        "schema:CellSet_CellType_5e19e272"
-      ]
-    },
-    {
-      "id": "CL:0000084",
-      "name": "CL:0000084",
-      "description": "Cell type: CL:0000084",
-      "source_uri": "CL:0000084",
-      "predominantly_in": [
-        "schema:CellSet_CellTypeL1_8f25ac05"
+        "schema:CellSet_CellType_38b44659"
       ]
     },
     {
@@ -1010,7 +617,7 @@
       "description": "Cell type: CL:0000814",
       "source_uri": "CL:0000814",
       "predominantly_in": [
-        "schema:CellSet_CellType_584f642b"
+        "schema:CellSet_CellType_5864fe84"
       ]
     },
     {
@@ -1019,7 +626,7 @@
       "description": "Cell type: CL:0000813",
       "source_uri": "CL:0000813",
       "predominantly_in": [
-        "schema:CellSet_CellType_ad7ef29f"
+        "schema:CellSet_CellType_3a9b27a7"
       ]
     },
     {
@@ -1028,7 +635,7 @@
       "description": "Cell type: CL:0000939",
       "source_uri": "CL:0000939",
       "predominantly_in": [
-        "schema:CellSet_CellType_f83b4f6c"
+        "schema:CellSet_CellType_62f0f73b"
       ]
     }
   ],
@@ -1039,16 +646,12 @@
       "description": "Tissue: UBERON:0002509",
       "source_uri": "UBERON:0002509",
       "present_in_cell_sets": [
-        "schema:CellSet_CellTypeL1_ce8654ce",
-        "schema:CellSet_CellTypeL1_1186d2e5",
-        "schema:CellSet_CellTypeL1_ba1d2ced",
-        "schema:CellSet_CellTypeL1_8f25ac05",
-        "schema:CellSet_CellType_c2c6223e",
-        "schema:CellSet_CellType_155e37bc",
-        "schema:CellSet_CellType_5e19e272",
-        "schema:CellSet_CellType_584f642b",
-        "schema:CellSet_CellType_ad7ef29f",
-        "schema:CellSet_CellType_f83b4f6c"
+        "schema:CellSet_CellType_503173fb",
+        "schema:CellSet_CellType_5bf409de",
+        "schema:CellSet_CellType_38b44659",
+        "schema:CellSet_CellType_5864fe84",
+        "schema:CellSet_CellType_3a9b27a7",
+        "schema:CellSet_CellType_62f0f73b"
       ]
     },
     {
@@ -1057,16 +660,12 @@
       "description": "Tissue: UBERON:0002370",
       "source_uri": "UBERON:0002370",
       "present_in_cell_sets": [
-        "schema:CellSet_CellTypeL1_ce8654ce",
-        "schema:CellSet_CellTypeL1_1186d2e5",
-        "schema:CellSet_CellTypeL1_ba1d2ced",
-        "schema:CellSet_CellTypeL1_8f25ac05",
-        "schema:CellSet_CellType_c2c6223e",
-        "schema:CellSet_CellType_155e37bc",
-        "schema:CellSet_CellType_5e19e272",
-        "schema:CellSet_CellType_584f642b",
-        "schema:CellSet_CellType_ad7ef29f",
-        "schema:CellSet_CellType_f83b4f6c"
+        "schema:CellSet_CellType_503173fb",
+        "schema:CellSet_CellType_5bf409de",
+        "schema:CellSet_CellType_38b44659",
+        "schema:CellSet_CellType_5864fe84",
+        "schema:CellSet_CellType_3a9b27a7",
+        "schema:CellSet_CellType_62f0f73b"
       ]
     },
     {
@@ -1075,16 +674,12 @@
       "description": "Tissue: UBERON:0002106",
       "source_uri": "UBERON:0002106",
       "present_in_cell_sets": [
-        "schema:CellSet_CellTypeL1_ce8654ce",
-        "schema:CellSet_CellTypeL1_1186d2e5",
-        "schema:CellSet_CellTypeL1_ba1d2ced",
-        "schema:CellSet_CellTypeL1_8f25ac05",
-        "schema:CellSet_CellType_c2c6223e",
-        "schema:CellSet_CellType_155e37bc",
-        "schema:CellSet_CellType_5e19e272",
-        "schema:CellSet_CellType_584f642b",
-        "schema:CellSet_CellType_ad7ef29f",
-        "schema:CellSet_CellType_f83b4f6c"
+        "schema:CellSet_CellType_503173fb",
+        "schema:CellSet_CellType_5bf409de",
+        "schema:CellSet_CellType_38b44659",
+        "schema:CellSet_CellType_5864fe84",
+        "schema:CellSet_CellType_3a9b27a7",
+        "schema:CellSet_CellType_62f0f73b"
       ]
     },
     {
@@ -1093,16 +688,12 @@
       "description": "Tissue: UBERON:0000178",
       "source_uri": "UBERON:0000178",
       "present_in_cell_sets": [
-        "schema:CellSet_CellTypeL1_ce8654ce",
-        "schema:CellSet_CellTypeL1_1186d2e5",
-        "schema:CellSet_CellTypeL1_ba1d2ced",
-        "schema:CellSet_CellTypeL1_8f25ac05",
-        "schema:CellSet_CellType_c2c6223e",
-        "schema:CellSet_CellType_155e37bc",
-        "schema:CellSet_CellType_5e19e272",
-        "schema:CellSet_CellType_584f642b",
-        "schema:CellSet_CellType_ad7ef29f",
-        "schema:CellSet_CellType_f83b4f6c"
+        "schema:CellSet_CellType_503173fb",
+        "schema:CellSet_CellType_5bf409de",
+        "schema:CellSet_CellType_38b44659",
+        "schema:CellSet_CellType_5864fe84",
+        "schema:CellSet_CellType_3a9b27a7",
+        "schema:CellSet_CellType_62f0f73b"
       ]
     },
     {
@@ -1111,16 +702,12 @@
       "description": "Tissue: UBERON:0002371",
       "source_uri": "UBERON:0002371",
       "present_in_cell_sets": [
-        "schema:CellSet_CellTypeL1_ce8654ce",
-        "schema:CellSet_CellTypeL1_1186d2e5",
-        "schema:CellSet_CellTypeL1_ba1d2ced",
-        "schema:CellSet_CellTypeL1_8f25ac05",
-        "schema:CellSet_CellType_c2c6223e",
-        "schema:CellSet_CellType_155e37bc",
-        "schema:CellSet_CellType_5e19e272",
-        "schema:CellSet_CellType_584f642b",
-        "schema:CellSet_CellType_ad7ef29f",
-        "schema:CellSet_CellType_f83b4f6c"
+        "schema:CellSet_CellType_503173fb",
+        "schema:CellSet_CellType_5bf409de",
+        "schema:CellSet_CellType_38b44659",
+        "schema:CellSet_CellType_5864fe84",
+        "schema:CellSet_CellType_3a9b27a7",
+        "schema:CellSet_CellType_62f0f73b"
       ]
     }
   ],
@@ -1131,16 +718,12 @@
       "description": "Disease: MONDO:0005812",
       "source_uri": "MONDO:0005812",
       "present_in_cell_sets": [
-        "schema:CellSet_CellTypeL1_ce8654ce",
-        "schema:CellSet_CellTypeL1_1186d2e5",
-        "schema:CellSet_CellTypeL1_ba1d2ced",
-        "schema:CellSet_CellTypeL1_8f25ac05",
-        "schema:CellSet_CellType_c2c6223e",
-        "schema:CellSet_CellType_155e37bc",
-        "schema:CellSet_CellType_5e19e272",
-        "schema:CellSet_CellType_584f642b",
-        "schema:CellSet_CellType_ad7ef29f",
-        "schema:CellSet_CellType_f83b4f6c"
+        "schema:CellSet_CellType_503173fb",
+        "schema:CellSet_CellType_5bf409de",
+        "schema:CellSet_CellType_38b44659",
+        "schema:CellSet_CellType_5864fe84",
+        "schema:CellSet_CellType_3a9b27a7",
+        "schema:CellSet_CellType_62f0f73b"
       ]
     },
     {
@@ -1149,16 +732,12 @@
       "description": "Disease: MONDO:0005299",
       "source_uri": "MONDO:0005299",
       "present_in_cell_sets": [
-        "schema:CellSet_CellTypeL1_ce8654ce",
-        "schema:CellSet_CellTypeL1_1186d2e5",
-        "schema:CellSet_CellTypeL1_ba1d2ced",
-        "schema:CellSet_CellTypeL1_8f25ac05",
-        "schema:CellSet_CellType_c2c6223e",
-        "schema:CellSet_CellType_155e37bc",
-        "schema:CellSet_CellType_5e19e272",
-        "schema:CellSet_CellType_584f642b",
-        "schema:CellSet_CellType_ad7ef29f",
-        "schema:CellSet_CellType_f83b4f6c"
+        "schema:CellSet_CellType_503173fb",
+        "schema:CellSet_CellType_5bf409de",
+        "schema:CellSet_CellType_38b44659",
+        "schema:CellSet_CellType_5864fe84",
+        "schema:CellSet_CellType_3a9b27a7",
+        "schema:CellSet_CellType_62f0f73b"
       ]
     },
     {
@@ -1167,16 +746,12 @@
       "description": "Disease: MONDO:0007179",
       "source_uri": "MONDO:0007179",
       "present_in_cell_sets": [
-        "schema:CellSet_CellTypeL1_ce8654ce",
-        "schema:CellSet_CellTypeL1_1186d2e5",
-        "schema:CellSet_CellTypeL1_ba1d2ced",
-        "schema:CellSet_CellTypeL1_8f25ac05",
-        "schema:CellSet_CellType_c2c6223e",
-        "schema:CellSet_CellType_155e37bc",
-        "schema:CellSet_CellType_5e19e272",
-        "schema:CellSet_CellType_584f642b",
-        "schema:CellSet_CellType_ad7ef29f",
-        "schema:CellSet_CellType_f83b4f6c"
+        "schema:CellSet_CellType_503173fb",
+        "schema:CellSet_CellType_5bf409de",
+        "schema:CellSet_CellType_38b44659",
+        "schema:CellSet_CellType_5864fe84",
+        "schema:CellSet_CellType_3a9b27a7",
+        "schema:CellSet_CellType_62f0f73b"
       ]
     },
     {
@@ -1185,16 +760,12 @@
       "description": "Disease: MONDO:0005109",
       "source_uri": "MONDO:0005109",
       "present_in_cell_sets": [
-        "schema:CellSet_CellTypeL1_ce8654ce",
-        "schema:CellSet_CellTypeL1_1186d2e5",
-        "schema:CellSet_CellTypeL1_ba1d2ced",
-        "schema:CellSet_CellTypeL1_8f25ac05",
-        "schema:CellSet_CellType_c2c6223e",
-        "schema:CellSet_CellType_155e37bc",
-        "schema:CellSet_CellType_5e19e272",
-        "schema:CellSet_CellType_584f642b",
-        "schema:CellSet_CellType_ad7ef29f",
-        "schema:CellSet_CellType_f83b4f6c"
+        "schema:CellSet_CellType_503173fb",
+        "schema:CellSet_CellType_5bf409de",
+        "schema:CellSet_CellType_38b44659",
+        "schema:CellSet_CellType_5864fe84",
+        "schema:CellSet_CellType_3a9b27a7",
+        "schema:CellSet_CellType_62f0f73b"
       ]
     }
   ],
@@ -1205,16 +776,12 @@
       "description": "Dev_stage: HsapDv:0000087",
       "source_uri": "HsapDv:0000087",
       "present_in_cell_sets": [
-        "schema:CellSet_CellTypeL1_ce8654ce",
-        "schema:CellSet_CellTypeL1_1186d2e5",
-        "schema:CellSet_CellTypeL1_ba1d2ced",
-        "schema:CellSet_CellTypeL1_8f25ac05",
-        "schema:CellSet_CellType_c2c6223e",
-        "schema:CellSet_CellType_155e37bc",
-        "schema:CellSet_CellType_5e19e272",
-        "schema:CellSet_CellType_584f642b",
-        "schema:CellSet_CellType_ad7ef29f",
-        "schema:CellSet_CellType_f83b4f6c"
+        "schema:CellSet_CellType_503173fb",
+        "schema:CellSet_CellType_5bf409de",
+        "schema:CellSet_CellType_38b44659",
+        "schema:CellSet_CellType_5864fe84",
+        "schema:CellSet_CellType_3a9b27a7",
+        "schema:CellSet_CellType_62f0f73b"
       ]
     },
     {
@@ -1223,16 +790,12 @@
       "description": "Dev_stage: HsapDv:0000246",
       "source_uri": "HsapDv:0000246",
       "present_in_cell_sets": [
-        "schema:CellSet_CellTypeL1_ce8654ce",
-        "schema:CellSet_CellTypeL1_1186d2e5",
-        "schema:CellSet_CellTypeL1_ba1d2ced",
-        "schema:CellSet_CellTypeL1_8f25ac05",
-        "schema:CellSet_CellType_c2c6223e",
-        "schema:CellSet_CellType_155e37bc",
-        "schema:CellSet_CellType_5e19e272",
-        "schema:CellSet_CellType_584f642b",
-        "schema:CellSet_CellType_ad7ef29f",
-        "schema:CellSet_CellType_f83b4f6c"
+        "schema:CellSet_CellType_503173fb",
+        "schema:CellSet_CellType_5bf409de",
+        "schema:CellSet_CellType_38b44659",
+        "schema:CellSet_CellType_5864fe84",
+        "schema:CellSet_CellType_3a9b27a7",
+        "schema:CellSet_CellType_62f0f73b"
       ]
     },
     {
@@ -1241,16 +804,12 @@
       "description": "Dev_stage: HsapDv:0000082",
       "source_uri": "HsapDv:0000082",
       "present_in_cell_sets": [
-        "schema:CellSet_CellTypeL1_ce8654ce",
-        "schema:CellSet_CellTypeL1_1186d2e5",
-        "schema:CellSet_CellTypeL1_ba1d2ced",
-        "schema:CellSet_CellTypeL1_8f25ac05",
-        "schema:CellSet_CellType_c2c6223e",
-        "schema:CellSet_CellType_155e37bc",
-        "schema:CellSet_CellType_5e19e272",
-        "schema:CellSet_CellType_584f642b",
-        "schema:CellSet_CellType_ad7ef29f",
-        "schema:CellSet_CellType_f83b4f6c"
+        "schema:CellSet_CellType_503173fb",
+        "schema:CellSet_CellType_5bf409de",
+        "schema:CellSet_CellType_38b44659",
+        "schema:CellSet_CellType_5864fe84",
+        "schema:CellSet_CellType_3a9b27a7",
+        "schema:CellSet_CellType_62f0f73b"
       ]
     }
   ],
@@ -1261,16 +820,12 @@
       "description": "Assay: EFO:0010550",
       "source_uri": "EFO:0010550",
       "present_in_cell_sets": [
-        "schema:CellSet_CellTypeL1_ce8654ce",
-        "schema:CellSet_CellTypeL1_1186d2e5",
-        "schema:CellSet_CellTypeL1_ba1d2ced",
-        "schema:CellSet_CellTypeL1_8f25ac05",
-        "schema:CellSet_CellType_c2c6223e",
-        "schema:CellSet_CellType_155e37bc",
-        "schema:CellSet_CellType_5e19e272",
-        "schema:CellSet_CellType_584f642b",
-        "schema:CellSet_CellType_ad7ef29f",
-        "schema:CellSet_CellType_f83b4f6c"
+        "schema:CellSet_CellType_503173fb",
+        "schema:CellSet_CellType_5bf409de",
+        "schema:CellSet_CellType_38b44659",
+        "schema:CellSet_CellType_5864fe84",
+        "schema:CellSet_CellType_3a9b27a7",
+        "schema:CellSet_CellType_62f0f73b"
       ]
     },
     {
@@ -1279,16 +834,12 @@
       "description": "Assay: EFO:0008913",
       "source_uri": "EFO:0008913",
       "present_in_cell_sets": [
-        "schema:CellSet_CellTypeL1_ce8654ce",
-        "schema:CellSet_CellTypeL1_1186d2e5",
-        "schema:CellSet_CellTypeL1_ba1d2ced",
-        "schema:CellSet_CellTypeL1_8f25ac05",
-        "schema:CellSet_CellType_c2c6223e",
-        "schema:CellSet_CellType_155e37bc",
-        "schema:CellSet_CellType_5e19e272",
-        "schema:CellSet_CellType_584f642b",
-        "schema:CellSet_CellType_ad7ef29f",
-        "schema:CellSet_CellType_f83b4f6c"
+        "schema:CellSet_CellType_503173fb",
+        "schema:CellSet_CellType_5bf409de",
+        "schema:CellSet_CellType_38b44659",
+        "schema:CellSet_CellType_5864fe84",
+        "schema:CellSet_CellType_3a9b27a7",
+        "schema:CellSet_CellType_62f0f73b"
       ]
     },
     {
@@ -1297,16 +848,12 @@
       "description": "Assay: EFO:0008914",
       "source_uri": "EFO:0008914",
       "present_in_cell_sets": [
-        "schema:CellSet_CellTypeL1_ce8654ce",
-        "schema:CellSet_CellTypeL1_1186d2e5",
-        "schema:CellSet_CellTypeL1_ba1d2ced",
-        "schema:CellSet_CellTypeL1_8f25ac05",
-        "schema:CellSet_CellType_c2c6223e",
-        "schema:CellSet_CellType_155e37bc",
-        "schema:CellSet_CellType_5e19e272",
-        "schema:CellSet_CellType_584f642b",
-        "schema:CellSet_CellType_ad7ef29f",
-        "schema:CellSet_CellType_f83b4f6c"
+        "schema:CellSet_CellType_503173fb",
+        "schema:CellSet_CellType_5bf409de",
+        "schema:CellSet_CellType_38b44659",
+        "schema:CellSet_CellType_5864fe84",
+        "schema:CellSet_CellType_3a9b27a7",
+        "schema:CellSet_CellType_62f0f73b"
       ]
     }
   ]

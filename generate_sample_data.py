@@ -16,6 +16,16 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(level
 logger = logging.getLogger(__name__)
 
 # Define sample data
+# CL IDs and their author-annotated free text labels
+CELL_TYPE_AUTHOR_LABELS = {
+    "CL:0000084": "T cells",  # Authors might use plural or different terminology
+    "CL:0000236": "B lymphocytes",
+    "CL:0000576": "Mono",  # Authors might use abbreviations
+    "CL:0000775": "PMN",  # Polymorphonuclear neutrophils (common abbreviation)
+    "CL:0000094": "Granulocytes"
+}
+
+# CL IDs for the specific cell types
 CELL_TYPES = [
     "CL:0000084",  # T cell
     "CL:0000236",  # B cell
@@ -26,6 +36,13 @@ CELL_TYPES = [
     "CL:0000814",  # mature NK T cell
     "CL:0000939",  # T helper cell
 ]
+
+# Additional specific cell type labels for level 2
+SPECIFIC_CELL_TYPE_LABELS = {
+    "CL:0000813": "Memory B",
+    "CL:0000814": "NKT cells",
+    "CL:0000939": "Th cells"
+}
 
 TISSUES = [
     "UBERON:0000178",  # blood
@@ -86,24 +103,32 @@ def generate_sample_data(
     
     # Generate cell type annotations with hierarchical structure
     # Level 1: broad cell types
-    broad_cell_types = np.random.choice(CELL_TYPES[:4], size=n_cells)
+    broad_cell_types_ids = np.random.choice(CELL_TYPES[:4], size=n_cells)
     
     # Level 2: more specific cell types (adding more detail to some cells)
-    specific_cell_types = broad_cell_types.copy()
+    specific_cell_types = broad_cell_types_ids.copy()
     
     # Replace some T cells with more specific T cell subtypes
-    t_cell_mask = broad_cell_types == "CL:0000084"
+    t_cell_mask = broad_cell_types_ids == "CL:0000084"
     specific_t_cells = np.random.choice(["CL:0000814", "CL:0000939"], size=t_cell_mask.sum())
     specific_cell_types[t_cell_mask] = specific_t_cells
     
     # Replace some B cells with memory B cells
-    b_cell_mask = broad_cell_types == "CL:0000236"
+    b_cell_mask = broad_cell_types_ids == "CL:0000236"
     memory_mask = np.random.choice([True, False], size=b_cell_mask.sum(), p=[0.3, 0.7])
     specific_cell_types[b_cell_mask] = np.where(memory_mask, "CL:0000813", "CL:0000236")
     
+    # Map to author-annotated free text labels for cell_type_l1
+    # Create a vectorized mapping function for broad cell types
+    def map_to_author_label(cell_id):
+        return CELL_TYPE_AUTHOR_LABELS.get(cell_id, cell_id)
+    
+    # Apply the mapping to get human-readable names
+    broad_cell_type_names = np.array([map_to_author_label(ct) for ct in broad_cell_types_ids])
+    
     # Add to observation dataframe
-    obs["cell_type_l1"] = broad_cell_types
-    obs["cell_type"] = specific_cell_types
+    obs["cell_type_l1"] = broad_cell_type_names  # Author's free text annotations
+    obs["cell_type"] = specific_cell_types  # CL IDs for specific types
     
     # Generate tissue annotations
     obs["tissue"] = np.random.choice(TISSUES, size=n_cells)

@@ -228,13 +228,20 @@ slots:
   count:
     description: The number of cells with this metadata.
     range: integer
+    
+  cell_ratio:
+    description: The proportion of cells in the cell set that are linked to this ontology term (value between 0 and 1).
+    range: float
+    minimum_value: 0.0
+    maximum_value: 1.0
 
 classes:
   MetadataAssociation:
-    description: An association between a cell set and metadata with a cell count.
+    description: An association between a cell set and metadata with a cell count and ratio.
     slots:
       - term
       - count
+      - cell_ratio
 
 types:
   # Re-use LinkML types
@@ -252,3 +259,8 @@ types:
     uri: xsd:integer
     base: int
     description: An integer
+    
+  float:
+    uri: xsd:float
+    base: float
+    description: A floating point number

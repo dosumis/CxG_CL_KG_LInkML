@@ -208,9 +208,14 @@ def get_cell_sets_from_anndata(
                         if assoc_slot not in cs:
                             cs[assoc_slot] = []
                             
+                        # Calculate cell_ratio (proportion of cells in the cell set)
+                        total_cells = cs["cell_count"]
+                        cell_ratio = float(cell_count) / total_cells if total_cells > 0 else 0.0
+                        
                         cs[assoc_slot].append({
                             "term": term_id,
-                            "count": int(cell_count)
+                            "count": int(cell_count),
+                            "cell_ratio": cell_ratio
                         })
                         
                         term_dict[term_id]["present_in_cell_sets"].append(cs_id)

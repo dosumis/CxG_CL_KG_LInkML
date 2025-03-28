@@ -270,7 +270,16 @@ def visualize_graph(G: nx.DiGraph, output_file: str, title: str = "Single Cell T
             )
     
     # Draw labels
-    labels = {n: attrs['label'] for n, attrs in G.nodes(data=True)}
+    labels = {}
+    for n, attrs in G.nodes(data=True):
+        if 'label' in attrs:
+            labels[n] = attrs['label']
+        elif 'name' in attrs:
+            labels[n] = attrs['name']
+        else:
+            # Use node ID as fallback
+            labels[n] = n.split(':')[-1]
+    
     nx.draw_networkx_labels(G, pos, labels=labels, font_size=8, font_weight='bold')
     
     plt.title(title, fontsize=16)
